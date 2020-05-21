@@ -11,6 +11,7 @@ import {CartService} from "./services/cart.service";
 import {CartPopupComponent} from "./pages/cart/cart-popup/cart-popup.component";
 import {ProductService} from "./services/products.service";
 import {HttpClientModule} from "@angular/common/http";
+import { AuthModule } from './pages/auth/auth.module';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import {HttpClientModule} from "@angular/common/http";
         FormsModule,
         HttpModule,
         HttpClientModule,
+        AuthModule,
+        RouterModule, // added
         RouterModule.forRoot(appRoutes)
     ],
     providers: [CartService,ProductService],
