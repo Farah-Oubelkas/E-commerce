@@ -1,6 +1,10 @@
 const express = require('express');
 var router = express.Router();
-var ObjectId = require('mongoose').Types.ObjectId;
+var cassandra = require('cassandra-driver');
+var client = new cassandra.Client({contactPoints : ['127.0.0.1']});
+client.connect(function(err, result){
+    console.log("product cassandra connected");
+});
 
 var { Department } = require('../models/department');
 
