@@ -24,22 +24,19 @@ export class ProductComponent implements OnInit {
                 this.getProduct(res.id);
             })
     }
-
     getProduct = (id) => {
-        this.sub = this.productService.getProducts()
+        this.sub = this.productService.getProducts('./assets/mock-data/products.json')
             .subscribe(res => {
+               
                 this.product = res[id-1];
             })
     };
-
     changeQuantity = (newQuantity:number) => {
         this.quantity = newQuantity;
     };
-
     addToCart = (product) => {
         if(this.quantity) this.cartService.addToCart({product,quantity:this.quantity})
     };
-    
     ngOnDestroy() {
         this.sub.unsubscribe();
     }

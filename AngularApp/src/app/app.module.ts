@@ -10,27 +10,27 @@ import {TopbarComponent} from "./components/topbar/topbar.component";
 import {CartService} from "./services/cart.service";
 import {CartPopupComponent} from "./pages/cart/cart-popup/cart-popup.component";
 import {ProductService} from "./services/products.service";
-import {HttpClientModule} from "@angular/common/http";
-import { AuthModule } from './pages/auth/auth.module';
-
+import { GestionUsersComponent } from './pages/admin/gestion_users/gestion_users.component';
+import { Users } from './services/user';
+ 
 
 @NgModule({
     declarations: [
         AppComponent,
         TopbarComponent,
-        CartPopupComponent
+        CartPopupComponent 
+         
+        
+         
     ],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
         FormsModule,
         HttpModule,
-        HttpClientModule,
-        AuthModule,
-        RouterModule, // added
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [CartService,ProductService],
+    providers: [CartService,ProductService,Users],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

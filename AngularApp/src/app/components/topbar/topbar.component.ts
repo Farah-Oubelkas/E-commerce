@@ -27,27 +27,11 @@ import {CartService} from "../../services/cart.service";
                         <a routerLink="/">SHOP<span class="fa fa-caret-down"></span></a>
                     </li>
                     <li class="header-nav-item">
-                        <a [routerLink]="['/product/list']">Products</a>
+                        <a routerLink="/">JOURNAL</a>
                     </li>
                     <li class="header-nav-item">
                         <a routerLink="/">MORE<span class="fa fa-caret-down"></span></a>
                     </li>
-                    <li class="header-nav-item">
-                        <button class="login100-form-btn" 
-                        [routerLink]="['login']"
-           				 class="btn btn-primary"
-         			   >
-							Sign up
-                        </button>
-                    </li>
-                    
-                    <!-- 
-                    <li class="header-nav-item">
-                        <a class="nav-link"
-                        [routerLink]="['login']"
-                        routerLinkActive="active">Sign Up</a>
-                     </li>
-                     -->
                 </ul>
             </div>
             <div class="header-cart-wrapper">
@@ -74,12 +58,6 @@ import {CartService} from "../../services/cart.service";
             <li>
                 <a routerLink="/">MORE</a>
             </li>
-            <li class="header-nav-item">
-                        <a class="nav-link"
-                        [routerLink]="['login']"
-                        routerLinkActive="active">Sign In|Sign Up</a>
-            </li>
-            
         </ul>
         <cart-popup></cart-popup>
     </div>

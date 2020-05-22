@@ -1,5 +1,6 @@
-import { ProductListComponent } from "./pages/product/product-list/product-list.component";
-
+/**
+ * Created by andrew.yang on 7/27/2017.
+ */
 export const appRoutes=[
     {
         path:'',
@@ -19,7 +20,16 @@ export const appRoutes=[
         loadChildren:'./pages/cart/cart-page.module#CartPageModule'
     },
     {
+        path:'gestion_users',
+        loadChildren:'./pages/admin/gestion_users/gestion_users.module#gestion_usersM'
+        
+    },
+ 
+    {
         path:'**',
         loadChildren:'./pages/category/category.module#CategoryModule'
-    },
+    }
+ 
+    
+ 
 ];
