@@ -1,10 +1,22 @@
 const cassandra = require('cassandra-driver');
+ 
+const client = new cassandra.Client({
+  contactPoints: ['127.0.0.1'],
+  localDataCenter: 'datacenter1',
+  keyspace: 'ecommerce'
+});
 
-/* mongoose.connect('mongodb://localhost:27017/App_hr_tp', (err) => {
+client.connect(function(err,result){
     if (!err)
-        console.log('MongoDB connection succeeded.');
+        console.log('Cassandra connection succeeded.');
     else
         console.log('Error in DB connection : ' + JSON.stringify(err, undefined, 2));
 });
+ 
+//test
+/* const query = 'SELECT * FROM product';
+ 
+client.execute(query, [])
+  .then(result => console.log('product with title %s', result.rows[0].title)); */
 
-module.exports = mongoose; */
+module.exports = cassandra; 
