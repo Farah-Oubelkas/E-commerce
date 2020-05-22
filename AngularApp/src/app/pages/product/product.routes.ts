@@ -14,7 +14,7 @@ export const productRoutes=[
         path:'list',
         component:ProductListComponent
     },
-    {
+    {  
         path:'edit/:id',
         component:ProductEditComponent
     },
