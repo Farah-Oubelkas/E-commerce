@@ -1,0 +1,39 @@
+  
+     <div class="container register-form">
+      <div class="form">
+          <div class="note">
+              <p>Update of  {{userActive?.First_Name}}    {{userActive?.Last_Name}}   information</p>
+          </div>
+
+          <div class="form-content">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="{{userActive?.First_Name}}*" value=""/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="{{userActive?.Last_Name}}  *" value=""/>
+                    </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="{{userActive?.Address}}" value=""/>
+                      </div>
+                   
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="   {{userActive?.Email}}  *" value=""/>
+                      </div>  <div class="form-group">
+                        <input type="text" class="form-control" placeholder="  {{userActive?.Contact}} " value=""/>
+                    </div>    
+                      <div class="form-group">
+                          <input type="password" #Pass class="form-control" placeholder="{{userActive?.password}}  *" value=""/>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" #cofirmPss class="form-control" placeholder="Confirm Password *" value=""/>
+                    </div>
+                  </div>
+              </div>
+              <button type="button" class="btnSubmit">Submit</button>
+          </div>
+      </div>
+  </div>
