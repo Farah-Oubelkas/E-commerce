@@ -1,6 +1,3 @@
-/**
- * Created by andrew.yang on 7/27/2017.
- */
 import {NgModule} from "@angular/core";
 import {RouterModule} from "@angular/router";
 import {gestion_usersP} from "./gestion_users.routes";

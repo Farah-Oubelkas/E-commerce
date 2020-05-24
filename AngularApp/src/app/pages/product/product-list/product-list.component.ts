@@ -34,11 +34,17 @@ export class ProductListComponent implements OnInit {
     return this.products.filter((product: Product) =>
       product.title.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
-  ngOnInit() : void{
+
+  RefreshProductList(){
     this.productService.getProducts().subscribe((res) => {
       this.products= res as Product[];
       this.filteredProducts = this.products;
     });
   }
+  
+  ngOnInit() : void{
+    this.RefreshProductList();
+  }
+  
 
 }

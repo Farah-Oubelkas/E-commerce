@@ -19,6 +19,11 @@ export const appRoutes=[
         loadChildren:'./pages/cart/cart-page.module#CartPageModule'
     },
     {
+        path:'gestion_users',
+        loadChildren:'./pages/admin/gestion_users/gestion_users.module#gestion_usersM'
+        
+    },
+    {
         path:'**',
         loadChildren:'./pages/category/category.module#CategoryModule'
     },
