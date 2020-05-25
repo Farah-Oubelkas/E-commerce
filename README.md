@@ -17,14 +17,8 @@ npm install
 ```
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build
+## functions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-#### Units to be tested
 1. Category Page
     * test shopping cart, add a duplicate item should increment the quantity for that item.
 2. Product Page, test add to cart button
