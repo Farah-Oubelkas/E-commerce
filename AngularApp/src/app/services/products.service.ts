@@ -7,6 +7,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 
 
+
 @Injectable()
 export class ProductService {
   private productUrl = "http://localhost:3000/products";
@@ -30,8 +31,9 @@ export class ProductService {
     return this.http.post(this.productUrl, prod);
   }
 
-  putProduct(prod: Product) {
-    return this.http.put(this.productUrl + `/${prod.id}`, prod);
+
+  deleteProduct(_id: string) {
+    return this.http.delete(this.productUrl + `/${_id}`);
   }
 
 

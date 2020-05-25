@@ -43,9 +43,9 @@
             <td>{{ product.description }}</td>
             <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
             <td>
-              <a [routerLink]="['/product/edit',product.product_id]" class="edit" data-toggle="modal"><i class="material-icons"
+              <a [routerLink]="['/product/edit',product.id]" class="edit" data-toggle="modal"><i class="material-icons"
                   data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-              <a href="#deleteProductModal" class="delete" data-toggle="modal"><i class="material-icons"
+              <a [routerLink]="['/product/list']" class="delete" data-toggle="modal" (click)="onDelete(product.id)"><i class="material-icons"
                   data-toggle="tooltip" title="Delete">&#xE872;</i></a>
             </td>
         </tbody>

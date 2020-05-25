@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/products.service';
 import {Product} from "../../../model/product";
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -23,14 +24,15 @@ export class ProductAddComponent implements OnInit {
   };
   
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,private router: Router) { }
+
 
   onSubmit(form: NgForm) {
-    console.log(this.selectedProduct);
       this.productService.postProduct(this.selectedProduct).subscribe(
         result => console.log("success submit: ", result),
-        error => console.log("error: ",error)
+        error => console.log("error: ",error),
       ); 
+      this.router.navigate(['/product/list']);
     }
 
 

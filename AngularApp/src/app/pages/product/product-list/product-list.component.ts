@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../../model/product";
 import { ProductService } from '../../../services/products.service';
+import { NgForm } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
+
+declare var M: any;
+
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -12,6 +17,8 @@ export class ProductListComponent implements OnInit {
   imageMargin = 2;
   _listFilter = '';
   errorMessage = '';
+
+  mySubscription: any;
 
   get listFilter(): string {
     return this._listFilter;
@@ -25,8 +32,17 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = [];
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { 
+  constructor(private productService: ProductService,private router: Router) { 
     this.listFilter = 'Leaf Rake';
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
   }
 
   performFilter(filterBy: string): Product[] {
@@ -45,6 +61,20 @@ export class ProductListComponent implements OnInit {
   ngOnInit() : void{
     this.RefreshProductList();
   }
-  
+
+  onDelete(_id: string) {
+    if (confirm('Are you sure to delete this record ?') == true) {
+      this.productService.deleteProduct(_id).subscribe((res) => {
+        this.RefreshProductList();
+        this.router.navigate(['/product/list']);
+      });
+    }
+  }
+
+ngOnDestroy() {
+  if (this.mySubscription) {
+    this.mySubscription.unsubscribe();
+  }
+}
 
 }
