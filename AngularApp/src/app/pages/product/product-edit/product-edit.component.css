@@ -1,0 +1,14 @@
+.test{
+    padding: 40px ;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 3px;
+   }
+
+.form-control{
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }

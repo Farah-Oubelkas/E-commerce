@@ -1,0 +1,45 @@
+<form class = "test" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-row">
+    <div class="form-group col-md-2">
+        <label for="inputEmail">ID</label>
+        <input type="text" class="form-control" placeholder="Product ID" name="id" [(ngModel)]="selectedProduct.id">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputEmail">Product Name</label>
+        <input type="text" class="form-control" placeholder="Product name" name="title" [(ngModel)]="selectedProduct.title">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Brand</label>
+        <select id="inputState" class="form-control" name="brand" [(ngModel)]="selectedProduct.brand">
+          <option selected>Choose...</option>
+          <option>hello</option>
+        </select>
+      </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Category</label>
+        <select id="inputState" class="form-control" name="category" [(ngModel)]="selectedProduct.category">
+          <option selected>Choose...</option>
+          <option>hi</option>
+        </select>
+      </div>
+   </div>
+    <div class="form-group">
+        <label for="inputPassword">Price</label>
+        <input type="text" class="form-control" id="inputPassword" placeholder="Price" name="price" [(ngModel)]="selectedProduct.price">
+    </div>
+    <div class="form-group">
+        <label for="textarea">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" [(ngModel)]="selectedProduct.description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Image</label>
+        <input type="file" class="form-control-file" name="image" [(ngModel)]="selectedProduct.image">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
+</form>
+
+
+
+
+
+

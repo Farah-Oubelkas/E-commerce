@@ -24,7 +24,10 @@ export const appRoutes=[
         loadChildren:'./pages/admin/gestion_users/gestion_users.module#gestion_usersM'
         
     },
+<<<<<<< HEAD
  
+=======
+>>>>>>> 07ba270ed89c9762c4ebb82b869411828310db88
     {
         path:'**',
         loadChildren:'./pages/category/category.module#CategoryModule'
