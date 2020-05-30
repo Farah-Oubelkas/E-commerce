@@ -1,9 +1,13 @@
 export class UserModel {
-
-     First_Name ?: String;
-     Last_Name ?: String;
-     Address ?: String;
-     Email ?: String;
-     Contact ?: String;
-     password ?: String;
+     id:number;
+     first_name : String;
+     last_name : String;
+     address : String;
+     email : String;
+     contact : String;
+     password : String;
+     date:String;
+     constructor (){
+           
+       }
 }

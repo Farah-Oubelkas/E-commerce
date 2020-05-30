@@ -1,9 +1,11 @@
+ 
+  
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../../model/product";
 import { ProductService } from '../../../services/products.service';
 import { NgForm } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
-
+ 
 declare var M: any;
 
 
@@ -78,3 +80,4 @@ ngOnDestroy() {
 }
 
 }
+ 
