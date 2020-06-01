@@ -37,10 +37,4 @@ export class ProductService {
   }
 
 
-  /*     onSubmit(form :NgForm):{
-  
-      }
-   */
-
-
 }
