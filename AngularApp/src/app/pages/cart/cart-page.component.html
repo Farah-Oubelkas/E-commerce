@@ -11,7 +11,7 @@
         </div>
         <div class="cart-item-row" *ngFor="let cart of cartList;let i = index">
             <div class="cart-item-cell cart-item-product">
-                <div class="cart-item-thumbnail" [ngStyle]="{'background-image': 'url(./assets/imgs/' + cart.product.image + ')'}">
+                <div class="cart-item-thumbnail" [ngStyle]="{'background-image': 'url(' + cart.product.image + ')'}">
                 </div>
                 <div class="cart-item-info">
                     <div class="cart-item-brand">{{cart.product.brand}}</div>
@@ -27,7 +27,8 @@
                 </div>
             </div>
             <div class="cart-item-cell cart-item-action">
-                <div class="item-remove" (click)="removeFromCart(i)">X</div>
+                <div class="item-remove" (click)="removeFromCart(i)"><i class="material-icons"
+                    data-toggle="tooltip" style="font-size:30px;color:red;">close</i></div>
             </div>
         </div>
         <div class="row cart-total">

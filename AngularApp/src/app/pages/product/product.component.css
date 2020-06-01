@@ -25,7 +25,9 @@
 }
 
 .product-details-image {
-    width: 95%;
+    width: 50%;
+    height: 20%;
+    margin-left: 180px;
     padding-top: 63.3%;
     background-position: 50% 50%;
     background-repeat: no-repeat;

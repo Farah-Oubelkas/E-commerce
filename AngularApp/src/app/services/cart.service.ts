@@ -17,10 +17,16 @@ export class CartService {
         let dup = current.find(c=>c.product.title === cart.product.title);
         if(dup) dup.quantity += cart.quantity;
         else current.push(cart);
+        console.log(cart);
         this.cartListSubject.next(current);
+
+        //ajouter au panier function
     };
     reloadCart = (cartList) => {
         this.cartListSubject.next(cartList);
+        //il retourne la liste apres la modification 
+        //fonction de modification de la liste product par product
+
     };
     removeCart = index => {
         let current = this.cartListSubject.getValue();

@@ -21,15 +21,18 @@ export class CategoryComponent implements OnInit {
     ngOnInit() {
         this.load();
     }
+
     load = () => {
        this.sub = this.productService.getProducts()
             .subscribe(res => {
                 this.products = res;
             })
     };
+
     addToCart = (product) => {
         this.cartService.addToCart({product,quantity:1})
     };
+    
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
