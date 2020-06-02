@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 @Injectable()
 export class ProductService {
   private productUrl = "http://localhost:3000/products";
-
+  private utl ="../../assets/mock-data/products.json";
   constructor(public http: Http) { }
 
   public getProducts() {
@@ -19,7 +19,12 @@ export class ProductService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error || 'Server error'));
   }
-
+  getAllproductTest (){
+    return this.http.get(this.utl)
+    .map((res: Response) => res.json())
+    .catch((error: any) => Observable.throw(error || 'Server error'));
+  
+  }
   getProduct(id: number): Observable<Product | undefined> {
     return this.getProducts()
       .pipe(
