@@ -1,69 +1,44 @@
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<div class="login100-pic js-tilt" data-tilt>
+				<img src="./assets/imgs/img-01.png" alt="IMG">
+			</div>
+			<form class = "login100-form validate-form" (ngSubmit)="onSubmit(myfrom)" #myfrom="ngForm">
 
-	<div class="limiter">
-		<div class="container-login100" >
-			<div class="wrap-login100" >
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="./assets/imgs/img-01.png" alt="IMG">
+				<span class="login100-form-title">
+					Login
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<input class="input100" type="text" class="form-control" id="exampleInputEmail1" name="email"
+				 [(ngModel)]="email" placeholder="Enter email">
+					<span class="focus-input100"></span>
+
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<input class="input100" type="password" class="form-control" id="exampleInputEmail1" name="password"
+				 [(ngModel)]="password" placeholder="Enter password">
+					<span class="focus-input100"></span>
+
 				</div>
 
-				<form class="login100-form validate-form" #f="ngForm"
-        (ngSubmit)="onSubmit(f)">
-					<span class="login100-form-title">
-						 Login
-					</span>
+				
+				<div class="container-login100-form-btn">
+					<button type="submit" class="btn btn-success" [disabled]="!myfrom.valid">Submit</button>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" 
-            class="form-control" 
-            id="exampleInputEmail1" 
-            name="username"
-            ngModel
-            required
-            #username="ngModel"
-            placeholder="Enter username">
-						<span class="focus-input100"></span>
-						
-					</div>
+				</div>
+				<br>
+			
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" 
-            name="password"
-             ngModel
-             required
-             #password="ngModel"
-            class="form-control"
-            id="loginPassword" 
-            placeholder="Password">
-						<span class="focus-input100"></span>
-						
-					</div>
-					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit"
-           				 class="btn btn-primary"
-         			   [disabled]="f.invalid">
-							Login
-						</button>
-					</div>
-					<br>
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" [routerLink]="['/reset-password']">
-							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center p-t-136">
-						<a class="txt2" [routerLink]="['/register']">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
-			</div>
+				<div class="text-center p-t-136">
+					<a class="txt2" [routerLink]="['/register']">
+						Create your Account
+						<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+					</a>
+				</div>
+			</form>
 		</div>
 	</div>
-	
-	
+</div>

@@ -1,9 +1,9 @@
-[
+ [
   {
     "product_id":1,
     "title": "Blue Stripe Stoneware Plate",
     "brand": "Kiriko",
-    "category":"Farah Category",
+    "category":"men",
     "price": 40,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget.",
     "image": "../../assets/imgs/blue-stripe-stoneware-plate.jpg"
@@ -12,7 +12,7 @@
     "product_id":2,
     "title": "Hand Painted Blue Flat Dish",
     "brand": "Kiriko",
-    "category":"Malak Category",
+    "category":"women",
     "price": 28,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget arcu. Curabitur ac pharetra nisl, sit amet mattis dolor.",
     "image": "../../assets/imgs/hand-painted-blue-flat-dish.jpg"
@@ -21,7 +21,7 @@
     "product_id":3,
     "title": "Heme",
     "brand": "Dust & Form",
-    "category":"Hiba Category",
+    "category":"men",
     "price": 52,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget arcu. Curabitur ac pharetra nisl, sit amet mattis dolor.",
     "image": "../../assets/imgs/heme.jpg"
@@ -30,7 +30,7 @@
     "product_id":4,
     "title": "Mashiko-Yaki Green Small Plate",
     "brand": "Kiriko",
-    "category":"Farah Category",
+    "category":"kids",
     "price": 28,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget.",
     "image": "../../assets/imgs/mashiko-yaki-green-small-plate.jpg"
@@ -38,8 +38,8 @@
   {
     "product_id":5,
     "title": "Mashiko-Yaki Indigo Small Plate",
-    "brand": "Kiriko",
-    "category":"Farah Category",
+    "brand": "kids",
+    "category":"men",
     "price": 28,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget.",
     "image": "../../assets/imgs/mashiko-yaki-indigo-small-plate.jpg"
@@ -48,7 +48,7 @@
     "product_id":6,
     "title": "Mashiko-Yaki Saucer",
     "brand": "Kiriko",
-    "category":"Farah Category",
+    "category":"women",
     "price": 18,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget.",
     "image": "../../assets/imgs/mashiko-yaki-saucer.jpg"

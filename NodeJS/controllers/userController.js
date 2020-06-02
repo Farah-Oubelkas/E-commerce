@@ -1,95 +1,73 @@
-const express = require('express')
-const users = express.Router()
-const cors = require('cors')
-const jwt = require('jsonwebtoken')
+const express = require('express');
+var router = express.Router();
+const cassandra = require('cassandra-driver');
 
-const User = require('../models/User')
-users.use(cors())
+const client = new cassandra.Client({
+    contactPoints: ['127.0.0.1'],
+    localDataCenter: 'datacenter1',
+    keyspace: 'ecommerce'
+  });
 
-process.env.SECRET_KEY = 'secret'
 
-users.post('/register', (req, res) => {
-  const today = new Date()
-  const userData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    password: req.body.password,
-    created: today
-  }
-
-  User.findOne({
-    email: req.body.email
-  })
-    //TODO bcrypt
-    .then(user => {
-      if (!user) {
-        User.create(userData)
-          .then(user => {
-            const payload = {
-              _id: user._id,
-              first_name: user.first_name,
-              last_name: user.last_name,
-              email: user.email
-            }
-            let token = jwt.sign(payload, process.env.SECRET_KEY, {
-              expiresIn: 1440
-            })
-            res.json({ token: token })
-          })
-          .catch(err => {
-            res.send('error: ' + err)
-          })
-      } else {
-        res.json({ error: 'User already exists' })
-      }
-    })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
-})
-
-users.post('/login', (req, res) => {
-  User.findOne({
-    email: req.body.email
-  })
-    .then(user => {
-      if (user) {
-        const payload = {
-          _id: user._id,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email
+ const getAllUsers = 'SELECT * FROM User';
+  //localhost:3000/products
+ router.get('/',function(req,res){
+    client.execute( getAllUsers, [],function(err,result){
+        if(err){
+             res.status(404).send({msg:err});
+        }else{
+            res.send(result.rows);
+            console.log(result.rows);
         }
-        let token = jwt.sign(payload, process.env.SECRET_KEY, {
-          expiresIn: 1440
-        })
-        res.json({ token: token })
-      } else {
-        res.json({ error: 'User does not exist' })
-      }
     })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
-})
 
-users.get('/profile', (req, res) => {
-  var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+ });
 
-  User.findOne({
-    _id: decoded._id
-  })
-    .then(user => {
-      if (user) {
-        res.json(user)
-      } else {
-        res.send('User does not exist')
-      }
-    })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
-})
 
-module.exports = users
+/*  const getProductbyId = 'SELECT * FROM product WHERE id = ?';
+ router.get('/:id',function(req,res){
+    client.execute( getProductbyId, [req.params.id],function(err,result){
+        if(err){
+             res.status(404).send({msg:err});
+        }else{
+            console.log('product', result.rows)
+        }
+    })
+ }); */
+
+ router.post('/login',function(req,res)
+ {
+    const getUser ="select * from user where email=? and password=?";
+    client.execute(getUser, [req.body.email,req.body.password],
+    { prepare: true },function(err,result){
+        if(err){
+             res.status(404).send({msg:err+h});
+        }else{
+            console.log(result.rows);
+        }
+    })
+
+ })
+ router.post('/',function(req,res)
+ {
+const addUser = 'INSERT INTO User(email,adresse,contact,date_creation,first_name,last_name,password) VALUES(?,?,?,?,?,?,?)';
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  
+  today = yyyy + '-' + mm + '-' +dd ;
+     
+  
+  var h=  client.execute( addUser, [req.body.email,req.body.adresse,req.body.contact,
+    today,req.body.first_name,req.body.last_name,req.body.password],
+    { prepare: true },function(err,result){
+        if(err){
+             res.status(404).send({msg:err+h});
+        }else{
+            console.log(result.rows);
+        }
+    })
+ }); 
+
+ module.exports = router;
