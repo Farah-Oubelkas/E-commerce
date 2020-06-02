@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserModel} from '../../../../model/userModel';
+import {Users} from '../../../../services/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,13 +11,31 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  
+  selectedUser: UserModel ={
+    first_name:null,
+    last_name:null,
+    adresse:null,
+    email:null,
+    contact:null,
+    password : null
+  };
+
+  constructor(private userService : Users,
+    private router:Router
+    ) { }
 
   ngOnInit() {
   }
 
-  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+  onSubmit(myform: NgForm) {
+    console.log(myform.value);  // { first: '', last: '' }
+    console.log(this.selectedUser.email); // false
+  
+    this.userService.postUser(this.selectedUser).subscribe(
+      result => console.log("success submit: ", result),
+      error => console.log("error: ",error),
+    ); 
+    this.router.navigate(['/login']);
   }
-}
+  }

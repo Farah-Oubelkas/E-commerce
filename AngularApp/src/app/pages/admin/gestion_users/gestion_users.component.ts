@@ -29,7 +29,7 @@ console.log("hihiiiiiiiiiiiiiiiiiiiiiiiii");
       performFilter(filterBy: string): UserModel[] {
         filterBy = filterBy.toLocaleLowerCase();
         return this.users.filter((user: UserModel) =>
-        user.First_Name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+        user.first_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
       }
    
   ngOnInit() {

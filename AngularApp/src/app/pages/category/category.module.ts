@@ -6,13 +6,16 @@ import {RouterModule} from "@angular/router";
 import {categoryRoutes} from "./category.routes";
 import {SharedModule} from "../../shared/shared.module";
 import {CategoryComponent} from "./category.component";
+
+import { CategorieProductComponent } from './ProductsCategorie/categorie-product.component';
 @NgModule({
     imports: [
         SharedModule,
         RouterModule.forChild(categoryRoutes)
     ],
     declarations: [
-        CategoryComponent
+        CategoryComponent,
+        CategorieProductComponent,
     ]
 })
 export class CategoryModule { }
