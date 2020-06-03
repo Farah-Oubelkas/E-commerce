@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+ @media screen and (min-width: 768px) {
     .compare-bar-content {
         text-align: center
     }
@@ -33,3 +33,5 @@
         display: none
     }
 }
+
+

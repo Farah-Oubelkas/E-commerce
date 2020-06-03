@@ -11,7 +11,8 @@ import {CartService} from "../../services/cart.service";
 })
 export class ProductComponent implements OnInit {
     private sub;
-    public product:Product;
+    product: Product;
+    errorMessage = '';
     quantity: number = 1;
     constructor(private route: ActivatedRoute,
                 private productService:ProductService,
@@ -19,19 +20,20 @@ export class ProductComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.route.params
-            .subscribe(res => {
-                this.getProduct(res.id);
-            })
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param; //conversion 
+      this.getProduct(id);
+    }
     }
 
-    getProduct = (id) => {
-        this.sub = this.productService.getProducts()
-            .subscribe(res => {
-                this.product = res[id-1];
-                console.log(res[id-1])
-            })
-    };
+    getProduct(id: number) {
+        this.productService.getProduct(id).subscribe(
+            res => {
+                this.product = res[0]; 
+            }     
+        );
+      } 
 
     changeQuantity = (newQuantity:number) => {
         this.quantity = newQuantity;
@@ -42,6 +44,6 @@ export class ProductComponent implements OnInit {
     };
     
     ngOnDestroy() {
-        this.sub.unsubscribe();
+        
     }
 }

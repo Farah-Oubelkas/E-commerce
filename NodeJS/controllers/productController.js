@@ -41,7 +41,7 @@ router.post('/', function (req, res) {
 
 const getProductbyId = 'SELECT * FROM product WHERE id = ?';
 router.get('/:id', function (req, res) {
-    client.execute(getProductbyId, [req.params.id], function (err, result) {
+    client.execute(getProductbyId, [req.params.id],{ prepare: true }, function (err, result) {
         if (err) {
             res.status(404).send({ msg: err });
         } else {

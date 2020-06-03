@@ -12,7 +12,8 @@ import { NgForm } from '@angular/forms';
 export class ProductService {
   private productUrl = "http://localhost:3000/products";
   private utl ="../../assets/mock-data/products.json";
-  constructor(public http: Http) { }
+  constructor(public http: Http) { 
+  }
 
   public getProducts() {
     return this.http.get(this.productUrl)
@@ -25,11 +26,11 @@ export class ProductService {
     .catch((error: any) => Observable.throw(error || 'Server error'));
   
   }
-  getProduct(id: number): Observable<Product | undefined> {
-    return this.getProducts()
-      .pipe(
-        map((products: Product[]) => products.find(p => p.id === id))
-      );
+  
+  getProduct(id: number) {
+    return this.http.get(this.productUrl + `/${id}`)
+    .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error || 'Server error'));
   }
 
   postProduct(prod: Product){
