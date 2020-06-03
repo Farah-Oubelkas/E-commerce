@@ -24,7 +24,7 @@ export class Users {
         return this.http.post(this.userUrl, user);
       }
 
-      getAllUsers(){
+    getAllUsers(){
        
         return this.http.get(this.userUrl)
         .map((res: Response) => res.json())

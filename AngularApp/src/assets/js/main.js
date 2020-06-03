@@ -22,7 +22,7 @@
     /*------------------
         Background Set
     --------------------*/
-    $('.set-bg').each(function () {
+    $(window).on('load',function() {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
     });
