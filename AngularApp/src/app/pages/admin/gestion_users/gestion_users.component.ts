@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { Users } from '../../../services/user';
 import { UserModel } from '../../../model/userModel';
 
@@ -11,11 +11,11 @@ import { UserModel } from '../../../model/userModel';
 export class GestionUsersComponent implements OnInit {
   filtereduser: UserModel[] = [];
   users: UserModel[] = [];
-      _listFilter = '';
+      _listFilter = ''; 
   public sub;
-  constructor(private route:ActivatedRoute, private UserService:Users) {
+  constructor(private route:ActivatedRoute, private UserService:Users,private router: Router) {
 console.log("hihiiiiiiiiiiiiiiiiiiiiiiiii"); 
-    this._listFilter=" ";
+    this._listFilter="";
   
     }
       get listFilter(): string {
@@ -27,28 +27,49 @@ console.log("hihiiiiiiiiiiiiiiiiiiiiiiiii");
         this.filtereduser = this.listFilter ? this.performFilter(this.listFilter) : this.users;
       }
       performFilter(filterBy: string): UserModel[] {
+        console.log("toLocaleLowerCase  "+this.listFilter);
         filterBy = filterBy.toLocaleLowerCase();
-        return this.users.filter((user: UserModel) =>
+        console.log("toLocaleLowerCase2222  "+filterBy);
+        
+        return this.users.filter((user: UserModel) =>     
+
         user.first_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+
       }
    
   ngOnInit() {
     
- 
-    this.load();
- 
+     
+    this.RefreshUserList();
+
   }
  load = () => {
-  this.sub = this.UserService.getUsers('./assets/mock-data/user.json')
+  this.sub = this.UserService.getUsers()
        .subscribe(res => {this.users = res;
-        this.filtereduser = this.users;})
+        this.filtereduser = this.users;
+          
+      })
 };
 Suppr(i:number):void{
  
- console.log("lililiiiiiiiiiiiiiiiiiiiiiiiiii");
+ 
  if (i !== -1) {
   this.users.splice(i, 1);
 }  
+if (confirm('Are you sure to delete this USER ?') == true) {
+  this.UserService.deleteUser(i).subscribe((res) => {
+    this.RefreshUserList();
+    this.router.navigate(['/gestion_users']);
+  });
+}
 
 }
+
+RefreshUserList(){
+  this.UserService.getUsers().subscribe((res) => {
+    this.users= res as UserModel[];
+    this.filtereduser = this.users;
+  });
+}
+
 }

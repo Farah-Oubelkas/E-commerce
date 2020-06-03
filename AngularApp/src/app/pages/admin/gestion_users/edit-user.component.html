@@ -1,39 +1,106 @@
-  
+<!-- <form #userUpdateForm="ngForm" (ngSubmit)="onSubmit(userUpdateForm)">
      <div class="container register-form">
       <div class="form">
           <div class="note">
               <p>Update of  {{userActive?.First_Name}}    {{userActive?.Last_Name}}   information</p>
           </div>
-
+       
           <div class="form-content">
               <div class="row">
+              
                   <div class="col-md-6">
                       <div class="form-group">
-                          <input type="text" class="form-control" placeholder="{{userActive?.First_Name}}*" value=""/>
+                          <input type="text" class="form-control" placeholder="{{userActive?.First_Name}}*"  [(ngModel)]="selecteduser.First_Name"/>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="{{userActive?.Last_Name}}  *" value=""/>
+                        <input type="text" class="form-control" placeholder="{{userActive?.Last_Name}}  *" [(ngModel)]="selecteduser.Last_Name"/>
                     </div>
                       <div class="form-group">
-                          <input type="text" class="form-control" placeholder="{{userActive?.Address}}" value=""/>
+                          <input type="text" class="form-control" placeholder="{{userActive?.Address}}" [(ngModel)]="selecteduser.Address"/>
                       </div>
                    
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
-                          <input type="text" class="form-control" placeholder="   {{userActive?.Email}}  *" value=""/>
+                          <input type="text" class="form-control" placeholder="   {{userActive?.Email}}  *" [(ngModel)]="selecteduser.Email"/>
                       </div>  <div class="form-group">
-                        <input type="text" class="form-control" placeholder="  {{userActive?.Contact}} " value=""/>
+                        <input type="text" class="form-control" placeholder="  {{userActive?.Contact}} " [(ngModel)]="selecteduser.Contact"/>
                     </div>    
                       <div class="form-group">
-                          <input type="password" #Pass class="form-control" placeholder="{{userActive?.password}}  *" value=""/>
+                          <input type="password" #Pass class="form-control" placeholder="{{userActive?.password}}  *" [(ngModel)]="selecteduser.password"/>
                       </div>
                       <div class="form-group">
-                        <input type="password" #cofirmPss class="form-control" placeholder="Confirm Password *" value=""/>
+                        <input type="password" #cofirmPss class="form-control" placeholder="Confirm Password *" [(ngModel)]="confirm"/>
                     </div>
                   </div>
               </div>
-              <button type="button" class="btnSubmit">Submit</button>
+            
+              <button type="button" class="btnSubmit" >Submit</button>
+          
           </div>
       </div>
-  </div>
+     </div>
+ -->
+
+
+ <form class = "test" (ngSubmit)="onSubmit(f)" #f="ngForm">
+ <fieldset>
+   
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <legend>    Update of  {{userActive?.first_name}}    {{userActive?.last_name}}   information  </legend>
+ 
+            </div>
+            <br><br> 
+        <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputEmail">ID</label>
+            <input type="text" class="form-control" placeholder="user ID" name="id" [(ngModel)]="selecteduser.id" disabled>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputEmail">First Name</label>
+            <input type="text" class="form-control" placeholder="First Name" name="first_name" [(ngModel)]="selecteduser.first_name">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input">Last Name</label>
+            <input type="text" class="form-control" placeholder="Last Name" name="Last name" [(ngModel)]="selecteduser.last_name">
+        </div>
+      
+       </div>
+       <div class="form-row">
+       <div class="form-group col-md-3">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" placeholder="address" name="  Address" [(ngModel)]="selecteduser.address">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="address">Email</label>
+        <input type="email" class="form-control" placeholder="email" name="  email" [(ngModel)]="selecteduser.email">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="address">Phone Number</label>
+        <input type="text" class="form-control" placeholder="phone Number" name="  contact" [(ngModel)]="selecteduser.contact">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="address">Password</label>
+        <input type="Password" class="form-control" placeholder="password" name="  password" [(ngModel)]="selecteduser.password">
+    </div>
+    <div class="form-group col-md-6">
+       
+    </div>
+    <div class="form-group col-md-6">
+        <button type="submit" class="btnSubmit" [disabled]="!f.valid">Submit</button>
+    </div>
+    
+</div>
+
+     
+      </div>
+
+      </div>
+    </fieldset>    
+    </form>
+      
+     
+  
+      

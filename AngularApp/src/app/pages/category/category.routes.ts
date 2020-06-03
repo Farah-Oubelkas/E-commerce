@@ -11,6 +11,10 @@ export const categoryRoutes=[
     {
         path:'',
         component:CategoryComponent
+    },
+    {
+        path:'CategorieProduct',
+        component:CategorieProductComponent
     }
     
 ];
