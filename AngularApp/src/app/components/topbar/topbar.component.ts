@@ -16,7 +16,7 @@ import {CartService} from "../../services/cart.service";
                 </button>
             </div>
             <div class="header-logo-wrapper">
-                <img class="header-logo-image" src="" >
+                <img class="header-logo-image" src="../../../assets/img/img/logo.png" >
             </div>
             <div class="header-nav-wrapper">
                 <ul class="header-nav">

@@ -1,8 +1,8 @@
 .test{
-    padding: 40px ;
+    padding: 100px ;
     margin-left: 40px;
     margin-right: 20px;
-    margin-top: 3px;
+    margin-top: 10px;
     font-family: Open Sans, sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -10,7 +10,7 @@
     margin: 0;
     text-align: left;
     color: #525f7f;
-    background-color: #f8f9fe
+    background-color: #f8f9fe;
    }
 
 

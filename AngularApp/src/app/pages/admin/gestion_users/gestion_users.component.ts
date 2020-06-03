@@ -31,14 +31,10 @@ console.log("hihiiiiiiiiiiiiiiiiiiiiiiiii");
         filterBy = filterBy.toLocaleLowerCase();
         console.log("toLocaleLowerCase2222  "+filterBy);
         
-        return this.users.filter((user: UserModel) =>
-<<<<<<< HEAD
-       
-          user.first_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
-        
-=======
+        return this.users.filter((user: UserModel) =>     
+
         user.first_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
->>>>>>> 791210bd8f87fc97594bbff196665265e78cf37b
+
       }
    
   ngOnInit() {
