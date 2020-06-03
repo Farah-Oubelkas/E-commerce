@@ -12,6 +12,7 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class Users {
     private userUrl = "http://localhost:3000/user";
+    private EdituserUrl = "http://localhost:3000/user/edit";
     private userlogin= "http://localhost:3000/login";
  
     constructor(private  http: Http) {}
@@ -45,6 +46,10 @@ export class Users {
     postUser(user: UserModel){
         console.log("jjjddddd")
         return this.http.post(this.userUrl, user);
+      }
+
+    EditUser(user: UserModel){
+        return this.http.post(this.EdituserUrl , user);
       }
 
 

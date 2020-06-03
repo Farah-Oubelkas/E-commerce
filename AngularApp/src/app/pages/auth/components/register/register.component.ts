@@ -13,9 +13,10 @@ export class RegisterComponent implements OnInit {
 
   
   selectedUser: UserModel ={
+    id:null,
     first_name:null,
     last_name:null,
-    adresse:null,
+    address:null,
     email:null,
     contact:null,
     password : null

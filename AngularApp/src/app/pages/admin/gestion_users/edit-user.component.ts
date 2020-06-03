@@ -58,7 +58,7 @@ getUser = (id1) => {
 onSubmit(form: NgForm) {
   console.log("------->"+this.selecteduser);
  
-    this.UserService.postUser(this.selecteduser).subscribe(
+    this.UserService.EditUser(this.selecteduser).subscribe(
       result => console.log("success submit: ", result),
       error => console.log("error: ",error)
     ); 

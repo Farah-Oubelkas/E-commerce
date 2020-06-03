@@ -6,14 +6,15 @@
      
 			<div class="login100-pic js-tilt" data-tilt> 
       <br>
-				<img src="./assets/imgs/download.jpg" alt="IMG">
+				<img src="./assets/imgs/signup.jpg" alt="IMG">
       </div>
     
       <form class = "test" (ngSubmit)="onSubmit(myfrom)" #myfrom="ngForm">
-     
+        <input type="number" class="input100" placeholder="Identifiant " name="id" [(ngModel)]="selectedUser.id"> 
+        <br>
             <input type="text" class="input100" placeholder="Email " name="email" [(ngModel)]="selectedUser.email">
       <br>
-          <input type="text" class="input100" placeholder="Adresse " name="adresse" [(ngModel)]="selectedUser.adresse">
+          <input type="text" class="input100" placeholder="Adresse " name="address" [(ngModel)]="selectedUser.address">
           <br>
       
         <input type="text" class="input100" placeholder="contact " name="contact" [(ngModel)]="selectedUser.contact">
