@@ -2,10 +2,10 @@
 {
     text-align: center;
     height: 80px;
-    background: -webkit-linear-gradient(left, #A9A9A9, #663399);
-    color: #fff;
+
+    color: #4d3e3e;
     font-weight: bold;
-    line-height: 80px;
+    line-height: 100px;
 }
 .form-content
 {
@@ -23,6 +23,13 @@
     padding: 1%;
     width: 20%;
     cursor: pointer;
-    background: #663399;
-    color: #fff;
+    background: #efee9d;
+    color:black;
+    font-weight: bold;
 }
+legend {
+    background-color: #efee9d;
+    color: black;
+    padding: 3px 6px;
+}
+ 

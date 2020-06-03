@@ -12,8 +12,10 @@ import { NgForm } from '@angular/forms';
 export class ProductService {
   private productUrl = "http://localhost:3000/products";
   private utl ="../../assets/mock-data/products.json";
+
   constructor(public http: Http) { 
   }
+
 
   public getProducts() {
     return this.http.get(this.productUrl)
