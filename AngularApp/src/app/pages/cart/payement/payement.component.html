@@ -1,3 +1,4 @@
+
 <div class="breacrumb-section">
   <div class="container">
       <div class="row">
@@ -16,95 +17,63 @@
 <!-- Shopping Cart Section Begin -->
 <section class="checkout-section spad">
   <div class="container">
-      <form action="#" class="checkout-form">
+
+    <div class="alert alert-secondary" role="alert" style="font-size: large;">
+        Facture à payer est :  <a href="#" class="alert-link" style="font-size: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-decoration: underline black;">
+           $ {{ prixTotal | json}} </a>          
+        </div>
+      <form   (ngSubmit)="onSubmit(myfrom)" #myfrom="ngForm"   class="checkout-form">
           <div class="row">
               <div class="col-lg-6">
-                  <div class="checkout-content">
-                      <a [routerLink]="['/login']" class="content-btn">Click Here To Login</a>
-                  </div>
+                  <br><br><br><br>
                   <h4>Biiling Details</h4>
                   <div class="row">
                       <div class="col-lg-6">
                           <label for="fir">First Name<span>*</span></label>
-                          <input type="text" id="fir">
+                          <input type="text" id="fir"  name="first_name" [(ngModel)]="order.first_name" >
                       </div>
                       <div class="col-lg-6">
                           <label for="last">Last Name<span>*</span></label>
-                          <input type="text" id="last">
-                      </div>
-                      <div class="col-lg-12">
-                          <label for="cun-name">Company Name</label>
-                          <input type="text" id="cun-name">
-                      </div>
-                      <div class="col-lg-12">
-                          <label for="cun">Country<span>*</span></label>
-                          <input type="text" id="cun">
-                      </div>
-                      <div class="col-lg-12">
-                          <label for="street">Street Address<span>*</span></label>
-                          <input type="text" id="street" class="street-first">
-                          <input type="text">
-                      </div>
-                      <div class="col-lg-12">
-                          <label for="zip">Postcode / ZIP (optional)</label>
-                          <input type="text" id="zip">
-                      </div>
-                      <div class="col-lg-12">
-                          <label for="town">Town / City<span>*</span></label>
-                          <input type="text" id="town">
+                          <input type="text" id="last" name="last_name"  [(ngModel)]="order.last_name">
                       </div>
                       <div class="col-lg-6">
-                          <label for="email">Email Address<span>*</span></label>
-                          <input type="text" id="email">
-                      </div>
-                      <div class="col-lg-6">
-                          <label for="phone">Phone<span>*</span></label>
-                          <input type="text" id="phone">
-                      </div>
-                      <div class="col-lg-12">
-                          <div class="create-item">
-                              <label for="acc-create">
-                                  Create an account?
-                                  <input type="checkbox" id="acc-create">
-                                  <span class="checkmark"></span>
-                              </label>
-                          </div>
-                      </div>
+                        <label for="phone">Phone<span>*</span></label>
+                        <input type="text" id="phone" name="phone"  [(ngModel)]="order.phone">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="email">Email Address<span>*</span></label>
+                        <input type="text" id="email" name="email"  [(ngModel)]="order.email">
+                    </div>
+                   
+                      
                   </div>
               </div>
               <div class="col-lg-6">
-                  <div class="checkout-content">
-                      <input type="text" placeholder="Enter Your Coupon Code">
-                  </div>
+               <br><br><br><br>
                   <div class="place-order">
-                      <h4>Your Order</h4>
+                      <h4>Mode de payement</h4>
                       <div class="order-total">
-                          <ul class="order-table">
-                              <li>Product <span>Total</span></li>
-                              <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                              <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                              <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                              <li class="fw-normal">Subtotal <span>$240.00</span></li>
-                              <li class="total-price">Total <span>$240.00</span></li>
-                          </ul>
+                         
                           <div class="payment-check">
                               <div class="pc-item">
                                   <label for="pc-check">
                                       Cheque Payment
-                                      <input type="checkbox" id="pc-check">
+                                      <input type="checkbox" id="pc-check"  name="cheque"  [(ngModel)]="order.cheque"> 
                                       <span class="checkmark"></span>
                                   </label>
                               </div>
                               <div class="pc-item">
                                   <label for="pc-paypal">
                                       Paypal
-                                      <input type="checkbox" id="pc-paypal">
+                                      <input type="checkbox" id="pc-paypal"  name="paypal"  [(ngModel)]="order.paypal">
                                       <span class="checkmark"></span>
                                   </label>
                               </div>
                           </div>
+                          <input type="hidden" id="pt" name="PrixTotal" [value]="prixTotal"  [(ngModel)]="order.prixTotal">
+
                           <div class="order-btn">
-                              <button type="submit" class="site-btn place-btn">Place Order</button>
+                              <button type="submit" class="site-btn place-btn" [disabled]="!myfrom.valid">Place Order</button>
                           </div>
                       </div>
                   </div>

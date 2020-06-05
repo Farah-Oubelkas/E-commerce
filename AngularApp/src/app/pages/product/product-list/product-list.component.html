@@ -32,7 +32,7 @@
         </thead>
         <tbody>
           <tr *ngFor = 'let product of filteredProducts'>
-            <td><img [src] = 'product.image'
+            <td><img [src] = "'./assets/img/products/'+product.image"
               [title] = 'product.title'
               [style.width.px]='imageWidth'
               [style.margin.px]='imageMargin'>

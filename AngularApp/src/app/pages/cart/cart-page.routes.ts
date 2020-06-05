@@ -12,5 +12,6 @@ export const cartPageRoutes=[
     {
         path:'payement',
         component:PayementComponent
-    }
+    },
+    { path: 'payement/:id',     component: PayementComponent }
 ];

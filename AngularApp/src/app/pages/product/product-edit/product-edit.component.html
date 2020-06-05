@@ -36,7 +36,7 @@
   </div>
   <div class="form-group">
     <label for="inputimage">Image URL</label>
-    <input type="text" class="form-control" id="inputimage" placeholder="URL" name="image" [(ngModel)]="selectedProduct.image">
+    <input type="file" class="form-control" id="inputimage" placeholder="URL" name="image" [(ngModel)]="selectedProduct.image">
 </div>
   <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
 </form>
