@@ -20,4 +20,5 @@ export class CartBaseComponent{
     removeFromCart = index => {
         this.cartService.removeCart(index);
     };
+    
 }

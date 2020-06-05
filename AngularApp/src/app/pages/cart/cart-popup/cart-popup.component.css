@@ -39,7 +39,6 @@
 }
 .pop-cart-item-image {
     color: #1d1d20;
-    vertical-align: middle;
     display: block;
     width: 80px;
     height: 80px;
@@ -75,7 +74,7 @@
 }
 .pop-cart-item-brand {
     display: block;
-    margin-top: 4px;
+    margin-top: 30px;
     margin-bottom: 2px;
     font-size: .76923em;
     line-height: 1.3;

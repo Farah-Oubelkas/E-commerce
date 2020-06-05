@@ -35,8 +35,8 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" [(ngModel)]="selectedProduct.description"></textarea>
     </div>
     <div class="form-group">
-      <label for="inputimage">Image URL</label>
-      <input type="file" class="form-control" id="inputimage" placeholder="URL" name="image" [(ngModel)]="selectedProduct.image">
+      <label for="inputimage">Image</label>
+      <input type="file" class="form-control" id="inputimage" name="image" [(ngModel)]="selectedProduct.image">
   </div>
     <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
 </form>
