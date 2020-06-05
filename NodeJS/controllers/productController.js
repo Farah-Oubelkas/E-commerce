@@ -27,9 +27,11 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     console.log(req.body);
+    var url = req.body.image.split("\\");  
+    console.log(url[2])
     const addProduct = 'INSERT INTO product(id,brand,category,description,image,price,title) VALUES(?,?,?,?,?,?,?)';
     client.execute(addProduct, [req.body.id, req.body.brand, req.body.category
-        , req.body.description, req.body.image, req.body.price, req.body.title], { prepare: true }, function (err, result) {
+        , req.body.description, url[2], req.body.price, req.body.title], { prepare: true }, function (err, result) {
             if (err) {
                 res.status(404).send({ msg: err });
             } else {
@@ -53,10 +55,11 @@ router.get('/:id', function (req, res) {
 
 
 router.put('/:id', function (req, res) {
+    var url = req.body.image.split("\\");
     console.log(req.body);
     const editProduct = 'INSERT INTO product(id,brand,category,description,image,price,title) VALUES(?,?,?,?,?,?,?)';
     client.execute(editProduct, [req.body.id, req.body.brand, req.body.category
-        , req.body.description, req.body.image, req.body.price, req.body.title], { prepare: true }, function (err, result) {
+        , req.body.description, url[2], req.body.price, req.body.title], { prepare: true }, function (err, result) {
             if (err) {
                 res.status(404).send({ msg: err });
             } else {

@@ -6,7 +6,7 @@ const { cassandra } = require('./db.js');
 var productController = require('./controllers/productController.js');
 var UserControlleurCasssandra = require('./controllers/UserControlleurCassandra.js');  
 var cartController = require('./controllers/cartController.js'); 
-
+var payementController=require('./controllers/payementConroller');
 
 var app = express();
 app.use(bodyParser.json());
@@ -19,6 +19,8 @@ app.use('/products', productController);
 app.use('/user', UserControlleurCasssandra);
 
 app.use('/carts', cartController);
+
+app.use('/payement',payementController);
 //app.use('/Department', departmentController);
 
 
