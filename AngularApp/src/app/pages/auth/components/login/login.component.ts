@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   users:UserModel[]= [];
-
-
   
-   email :String =null;
+    
+  email :String =null;
   password:String = null;
   constructor(private userService : Users,
     private router:Router) { }
-    refreshUserList(){
+
+
+
+  refreshUserList(){
        this.userService.getAllUsers().subscribe((res) => {
             this.users= res as UserModel[];
           });
@@ -28,25 +30,20 @@ export class LoginComponent implements OnInit {
 
   }
 
-
-
   onSubmit(myfrom:NgForm){
-  
-   console.log(myfrom.value);
-   console.log(this.users);
   
    for(let user of this.users){
     console.log(this.email +""+this.password);
      if(user.email == this.email && user.password==this.password){
-
-     console.log("vrai");
-     this.router.navigate(['/category']);
-
-     break;
+      this.userService.username= this.email;
+    localStorage.setItem('currentUser',this.userService.username);
+    this.router.navigate(['/category']);
+    break;
+    }else{
+      localStorage.removeItem('currentUser');
+      this.router.navigate(['/login']);
     }
-    this.router.navigate(['/login']);
-
-
+    
    }
   }
 }

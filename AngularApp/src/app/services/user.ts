@@ -14,15 +14,21 @@ export class Users {
     private userUrl = "http://localhost:3000/user";
     private EdituserUrl = "http://localhost:3000/user/edit";
     private userlogin= "http://localhost:3000/login";
+    
+    username :any;
  
-    constructor(private  http: Http) {}
- 
+    constructor(private  http: Http) {
+      
+    }
+
+    
 /*     public getUsers(dataURL:string){
         
         return this.http.get(dataURL)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error || 'Server error'));
     } */
+    
     public getUsers() {
         return this.http.get(this.userUrl)
           .map((res: Response) => res.json())
