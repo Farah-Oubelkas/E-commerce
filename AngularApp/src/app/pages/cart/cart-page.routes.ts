@@ -1,11 +1,12 @@
-/**
- * Created by andrew.yang on 7/27/2017.
- */
 import {CartPageComponent} from "./cart-page.component";
-
+import {PayementComponent} from "./payement/payement.component";
 export const cartPageRoutes=[
+    {
+        path:'payement',
+        component:PayementComponent
+    },
     {
         path:'',
         component:CartPageComponent
-    },
+    }
 ];

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
      if(user.email == this.email && user.password==this.password){
 
      console.log("vrai");
-     this.router.navigate(['/category/CategorieProduct']);
+     this.router.navigate(['/category']);
 
      break;
     }

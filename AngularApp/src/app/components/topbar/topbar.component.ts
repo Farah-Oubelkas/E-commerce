@@ -1,89 +1,53 @@
-/**
- * Created by andrew.yang on 7/28/2017.
- */
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../../services/cart.service";
 
 @Component({
     selector: 'top-bar',
     styleUrls: ['./top-bar.component.css'],
-    template: `    
-    <div class="main-header navbar-fixed-top">
-        <div class="header-menu">
-            <div class="header-mobile-nav-wrapper">
-                <button type="button" class="navbar-toggle" (click)="collapse = !collapse">
-                    <span class="fa fa-bars fa-2x"></span>
-                </button>
-            </div>
-            <div class="header-logo-wrapper">
-                <img class="header-logo-image" src="../../../assets/img/img/logo.png" >
-            </div>
-            <div class="header-nav-wrapper">
-                <ul class="header-nav">
-                    <li class="header-nav-item">
-                        <a routerLink="/">HOME</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a routerLink="/">SHOP<span class="fa fa-caret-down"></span></a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a [routerLink]="['/product/list']">Products</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a routerLink="/">MORE<span class="fa fa-caret-down"></span></a>
-                    </li>
-                    <li class="header-nav-item">
-                        <button class="login100-form-btn" 
-                        [routerLink]="['login']"
-           				 class="btn btn-primary"
-         			   >
-							Sign up
-                        </button>
-                    </li>
-                    
-                    <!-- 
-                    <li class="header-nav-item">
-                        <a class="nav-link"
-                        [routerLink]="['login']"
-                        routerLinkActive="active">Sign Up</a>
-                     </li>
-                     -->
-                </ul>
-            </div>
-            <div class="header-cart-wrapper">
-                <div class="header-cart" (click)="toggleCartPopup($event)">
-                    <div class="mobil-shopping-cart">
-                        <span><i class="fa fa-shopping-cart fa-2x"></i> <span *ngIf="cart_num">( {{cart_num}} )</span></span>
+    template: `
+<div class="main-header navbar-fixed-top">
+<div class="nav-item">
+    <div class="container">
+        <nav class="nav-menu mobile-menu">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./shop.html">Shop</a></li>
+                <li><a href="#">Collection</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Men's</a></li>
+                        <li><a href="#">Women's</a></li>
+                        <li><a href="#">Kid's</a></li>
+                    </ul>
+                </li>
+                <li><a href="./contact.html">Payement</a></li>
+                <li><a href="#">Admin Space</a>
+                    <ul class="dropdown">
+                        <li><a routerLink="/product/list">Manage products</a></li>
+                        <li><a routerLink="/gestion_users">Manage users</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="header-cart-wrapper nav-menu mobile-menu">
+                        <div class="header-cart" (click)="toggleCartPopup($event)">
+                            <div class="mobil-shopping-cart">
+                                <span><span *ngIf="cart_num">( {{cart_num}} )</span></span>
+                            </div>
+                            <div class="header-cart-item">
+                                <a href="">MY CART <span *ngIf="cart_num">( {{cart_num}} )</span><span class="fa fa-caret-down"></span></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="header-cart-item">
-                        <a href="">MY CART <span *ngIf="cart_num">( {{cart_num}} )</span><span class="fa fa-caret-down"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ul class="mobile-header-nav" *ngIf="collapse" (click)="collapse = !collapse">
-            <li>
-                <a routerLink="/">HOME</a>
-            </li>
-            <li>
-                <a routerLink="/">SHOP</a>
-            </li>
-            <li>
-                <a routerLink="/">JOURNAL</a>
-            </li>
-            <li>
-                <a routerLink="/">MORE</a>
-            </li>
-            <li class="header-nav-item">
-                        <a class="nav-link"
-                        [routerLink]="['login']"
-                        routerLinkActive="active">Sign In|Sign Up</a>
-            </li>
+                    <cart-popup></cart-popup>
+                </li>
+            </ul>
             
-        </ul>
-        <cart-popup></cart-popup>
+        </nav>
+        
+        <div id="mobile-menu-wrap"></div>
     </div>
-`
+</div>
+</div>
+    `
 })
 export class TopbarComponent implements OnInit {
     public collapse: boolean = false;

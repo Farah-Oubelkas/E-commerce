@@ -1,6 +1,3 @@
-/**
- * Created by Andrew on 7/30/2017.
- */
 import {CartService} from "../../services/cart.service";
 import {Cart} from "../../model/cart";
 export class CartBaseComponent{
