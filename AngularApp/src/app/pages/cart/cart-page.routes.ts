@@ -8,5 +8,9 @@ export const cartPageRoutes=[
     {
         path:'',
         component:CartPageComponent
+    },
+    {
+        path:'payement',
+        component:PayementComponent
     }
 ];
