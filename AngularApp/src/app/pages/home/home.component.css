@@ -12,3 +12,19 @@
     padding: 0px;
     
 }
+
+.Adimg {
+    float: left;
+    width:  363px;
+    height: 264px;
+    object-fit: cover;
+}
+
+.Adimglook{
+    float: left;
+    width:  500px;
+    height: 800px;
+    padding-bottom: 50px;
+    object-fit: cover;
+}
+
