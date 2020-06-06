@@ -3,7 +3,7 @@ import { ProductListComponent } from "./pages/product/product-list/product-list.
 export const appRoutes=[
     {
         path:'',
-        redirectTo:'category',
+        redirectTo:'home',
         pathMatch:'full'
     },
     {
