@@ -30,7 +30,7 @@ import { Router, NavigationEnd } from '@angular/router';
         <div class="container">
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
+                    <li><a [routerLink]="['/home']">Home</a></li>
                     <li><a [routerLink]="['/category']">Shop</a></li>
                     <li>
                         <div class="header-cart-wrapper nav-menu mobile-menu">
