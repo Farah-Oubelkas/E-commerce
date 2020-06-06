@@ -9,6 +9,7 @@ import {PayementService} from '../../../services/payement.service';
   styleUrls: ['./payement.component.css']
 })
 export class PayementComponent implements OnInit {
+transaction:boolean=false;
 prixTotal:number;
 order:payement ={
   email : null,
@@ -31,8 +32,23 @@ order:payement ={
         result => console.log("success submit: ", result),
         error => console.log("error: ",error),
       ); 
-      
+      this.transaction=true;
+        this.resetForm(myform);
     }
+   
+  resetForm(form?: NgForm) {
+    if (form)
+      form.reset();
+    this.order= {
+      email : "",
+      first_name : "",
+      last_name : "",
+      phone : null,
+      prixTotal: +this.route.snapshot.params['id'],
+      paypal:"",
+      cheque:""
+    }
+  }
   ngOnInit() {
 
     this.prixTotal = +this.route.snapshot.params['id'];

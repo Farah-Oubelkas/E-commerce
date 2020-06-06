@@ -18,10 +18,14 @@
 <section class="checkout-section spad">
   <div class="container">
 
-    <div class="alert alert-secondary" role="alert" style="font-size: large;">
+    <div *ngIf="transaction==false" class="alert alert-secondary" role="alert" style="font-size: large;">
         Facture à payer est :  <a href="#" class="alert-link" style="font-size: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-decoration: underline black;">
            $ {{ prixTotal | json}} </a>          
         </div>
+        <div *ngIf="transaction" class="alert alert-success"    role="alert">
+            <a href="#" class="alert-link" style="font-size: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-decoration: underline black;">
+                Order has been registred </a>      
+          </div>
       <form   (ngSubmit)="onSubmit(myfrom)" #myfrom="ngForm"   class="checkout-form">
           <div class="row">
               <div class="col-lg-6">
