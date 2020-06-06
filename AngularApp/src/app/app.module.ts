@@ -15,7 +15,7 @@ import { GestionUsersComponent } from './pages/admin/gestion_users/gestion_users
 import { Users } from './services/user';
 import {FormsModule} from "@angular/forms";
 import {PayementService} from "./services/payement.service";
-
+import {HomeModule} from './pages/home/home.module';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import {PayementService} from "./services/payement.service";
         HttpModule,
         HttpClientModule,
         AuthModule,
+        HomeModule,
         FormsModule,
         RouterModule, // added
         RouterModule.forRoot(appRoutes)
