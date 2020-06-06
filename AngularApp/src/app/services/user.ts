@@ -16,6 +16,8 @@ export class Users {
     private userlogin= "http://localhost:3000/login";
     
     username :any;
+    isLogenIn : boolean = false;
+    isAdmin : boolean = false;
  
     constructor(private  http: Http) {
       

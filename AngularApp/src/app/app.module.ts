@@ -15,6 +15,9 @@ import { GestionUsersComponent } from './pages/admin/gestion_users/gestion_users
 import { Users } from './services/user';
 import {FormsModule} from "@angular/forms";
 import {PayementService} from "./services/payement.service";
+import { AuthGuardGuard } from './services/auth-guard.guard';
+import {AdminGuardGuard} from './services/admin-guard.guard';
+
 
 
 
@@ -34,7 +37,7 @@ import {PayementService} from "./services/payement.service";
         RouterModule, // added
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [CartService,ProductService,Users,PayementService],
+    providers: [CartService,ProductService,Users,PayementService,AuthGuardGuard,AdminGuardGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

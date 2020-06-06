@@ -32,12 +32,6 @@ import { Router, NavigationEnd } from '@angular/router';
                 <ul>
                     <li><a href="./index.html">Home</a></li>
                     <li><a [routerLink]="['/category']">Shop</a></li>
-                    <li><a href="#">Admin Space</a>
-                        <ul class="dropdown">
-                            <li><a routerLink="/product/list">Manage products</a></li>
-                            <li><a routerLink="/gestion_users">Manage users</a></li>
-                        </ul>
-                    </li>
                     <li>
                         <div class="header-cart-wrapper nav-menu mobile-menu">
                             <div class="header-cart" (click)="toggleCartPopup($event)">
@@ -77,7 +71,7 @@ export class TopbarComponent implements OnInit {
     constructor(
         private cartService: CartService, private user_s : Users,private router:Router
     ) { 
-
+        this.user_s.username = localStorage.getItem('currentUser');
     }
 
     ngOnInit() {
@@ -94,6 +88,8 @@ export class TopbarComponent implements OnInit {
 
     logout(){
         localStorage.removeItem('currentUser');
+        this.user_s.isLogenIn = false;
+        this.user_s.isAdmin = false;
         this.router.navigate(['/login']);
     }
 }
