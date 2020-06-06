@@ -6,7 +6,7 @@ import {AdminGuardGuard} from './services/admin-guard.guard';
 export const appRoutes=[
     {
         path:'',
-        redirectTo:'category',
+        redirectTo:'home',
         pathMatch:'full'
     },
     {

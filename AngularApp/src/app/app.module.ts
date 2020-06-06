@@ -11,12 +11,13 @@ import {CartPopupComponent} from "./pages/cart/cart-popup/cart-popup.component";
 import {ProductService} from "./services/products.service";
 import {HttpClientModule} from "@angular/common/http";
 import { AuthModule } from './pages/auth/auth.module';
-import { GestionUsersComponent } from './pages/admin/gestion_users/gestion_users.component';
 import { Users } from './services/user';
 import {FormsModule} from "@angular/forms";
 import {PayementService} from "./services/payement.service";
 import { AuthGuardGuard } from './services/auth-guard.guard';
 import {AdminGuardGuard} from './services/admin-guard.guard';
+import {HomeModule} from './pages/home/home.module';
+
 
 
 
@@ -33,6 +34,7 @@ import {AdminGuardGuard} from './services/admin-guard.guard';
         HttpModule,
         HttpClientModule,
         AuthModule,
+        HomeModule,
         FormsModule,
         RouterModule, // added
         RouterModule.forRoot(appRoutes)
