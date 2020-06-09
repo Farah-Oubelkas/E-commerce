@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="cart-buttons">
-            <div class="continue-shopping"><a routerLink="/">continue shopping</a></div>
+            <div class="continue-shopping"><a routerLink="/category">continue shopping</a></div>
             <div class="checkout-button button button-primary button-large"   [routerLink]="['/cart/payement',totalPrice]">Checkout ({{totalPrice | currency :'USD':true}})</div>
         </div>
     </div>

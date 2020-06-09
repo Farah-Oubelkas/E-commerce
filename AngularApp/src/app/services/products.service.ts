@@ -22,6 +22,7 @@ export class ProductService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error || 'Server error'));
   }
+  
   getAllproductTest (){
     return this.http.get(this.utl)
     .map((res: Response) => res.json())

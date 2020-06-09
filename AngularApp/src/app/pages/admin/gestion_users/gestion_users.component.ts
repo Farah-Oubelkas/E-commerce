@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router,NavigationEnd} from "@angular/router";
 import { Users } from '../../../services/user';
 import { UserModel } from '../../../model/userModel';
+
 
 @Component({
   selector: 'app-gestion_users',
@@ -13,9 +14,20 @@ export class GestionUsersComponent implements OnInit {
   users: UserModel[] = [];
       _listFilter = ''; 
   public sub;
+  mySubscription: any;
+
   constructor(private route:ActivatedRoute, private UserService:Users,private router: Router) {
 console.log("hihiiiiiiiiiiiiiiiiiiiiiiiii"); 
     this._listFilter="";
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
   
     }
       get listFilter(): string {
@@ -70,6 +82,12 @@ RefreshUserList(){
     this.users= res as UserModel[];
     this.filtereduser = this.users;
   });
+}
+
+ngOnDestroy() {
+  if (this.mySubscription) {
+    this.mySubscription.unsubscribe();
+  }
 }
 
 }
